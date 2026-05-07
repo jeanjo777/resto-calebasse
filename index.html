@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="La Calebasse Québec - Restaurant, Traiteur et Épicerie africaine. Les vraies saveurs des tropiques au cœur de Québec.">
+  <meta name="theme-color" content="#2C1810">
+  <title>La Calebasse Québec | Restaurant - Traiteur - Épicerie Africaine</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="La Calebasse Québec | Restaurant Africain Authentique">
+  <meta property="og:description" content="Les vraies saveurs des tropiques au cœur de Québec. Restaurant, Traiteur et Épicerie africaine — cuisine ivoirienne authentique.">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:locale" content="fr_CA">
+  <meta property="og:site_name" content="La Calebasse Québec">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="La Calebasse Québec | Restaurant Africain Authentique">
+  <meta name="twitter:description" content="Les vraies saveurs des tropiques au cœur de Québec. Cuisine ivoirienne authentique.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Structured Data — Restaurant (Québec) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "La Calebasse Québec",
+    "description": "Premier restaurant africain authentique de Québec. Cuisine ivoirienne, traiteur et épicerie africaine.",
+    "servesCuisine": ["Africaine", "Ivoirienne", "Ouest-Africaine"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "969 Avenue Myrand",
+      "addressLocality": "Québec",
+      "addressRegion": "QC",
+      "postalCode": "G1V 2W6",
+      "addressCountry": "CA"
+    },
+    "telephone": "+1-581-981-2161",
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday"],
+        "opens": "10:00",
+        "closes": "21:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Thursday", "Friday", "Saturday"],
+        "opens": "10:00",
+        "closes": "22:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/Calzonequebec/",
+      "https://www.instagram.com/la_calebasse_/"
+    ],
+    "hasMenu": {
+      "@type": "Menu",
+      "hasMenuSection": [
+        {
+          "@type": "MenuSection",
+          "name": "Grillades",
+          "hasMenuItem": [
+            {"@type": "MenuItem", "name": "Tilapia Grillé", "description": "Servi avec attiéké, banane plantain et salade fraîche"},
+            {"@type": "MenuItem", "name": "Brochettes de Bœuf", "description": "Accompagnées de riz parfumé et bananes plantain"},
+            {"@type": "MenuItem", "name": "Poulet Grillé", "description": "Poulet mariné aux épices africaines"}
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Sauces Traditionnelles",
+          "hasMenuItem": [
+            {"@type": "MenuItem", "name": "Sauce Yassa", "description": "Sauce citronnée aux oignons caramélisés"},
+            {"@type": "MenuItem", "name": "Sauce Mafé", "description": "Sauce onctueuse à base de pâte d'arachide"},
+            {"@type": "MenuItem", "name": "Sauce Pondu", "description": "Feuilles de manioc mijotées"}
+          ]
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Structured Data — Restaurant (Trois-Rivières) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "La Calebasse Trois-Rivières",
+    "description": "Cuisine fusion africaine et épicerie fine tropicale à Trois-Rivières.",
+    "servesCuisine": ["Africaine", "Fusion africaine"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "4370 Boulevard des Forges",
+      "addressLocality": "Trois-Rivières",
+      "addressRegion": "QC",
+      "addressCountry": "CA"
+    },
+    "priceRange": "$$"
+  }
+  </script>
+</head>
+<body>
+  <!-- Page Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="loader__icon">
+        <img class="loader__logo" src="images/logo-calebasse.png" alt="" width="120" height="107">
+      </div>
+      <div class="loader__bar"><div class="loader__progress"></div></div>
+    </div>
+  </div>
+  <!-- Promo Banner -->
+  <div class="promo-banner" role="status">
+    <div class="container">
+      <p class="promo-banner__text">
+        <span class="promo-banner__highlight">Nouveau !</span>
+        Maintenant à Trois-Rivières — Cuisine fusion africaine &amp; épicerie fine tropicale
+      </p>
+      <button class="promo-banner__close" aria-label="Fermer la bannière">&times;</button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="header" id="header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#accueil" class="nav__logo" aria-label="La Calebasse - Accueil">
+        <img class="nav__logo-icon" src="images/logo-calebasse.png" alt="" width="36" height="32" aria-hidden="true">
+        <span class="nav__logo-text">La Calebasse</span>
+      </a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__menu" id="nav-menu" role="list">
+        <li><a href="#accueil" class="nav__link">Accueil</a></li>
+        <li><a href="#a-propos" class="nav__link">À propos</a></li>
+        <li><a href="#services" class="nav__link">Services</a></li>
+        <li><a href="#menu" class="nav__link">Menu</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+        <li><a href="tel:5819812161" class="nav__link nav__link--cta">Réserver</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="accueil" aria-labelledby="hero-heading">
+      <video class="hero__video" src="images/Video Project 9 (2).mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <!-- Floating decorative elements -->
+      <div class="hero__floats" aria-hidden="true">
+        <svg class="hero__float hero__float--1" viewBox="0 0 60 60" fill="none" width="60" height="60">
+          <circle cx="30" cy="30" r="28" stroke="rgba(218,168,74,0.15)" stroke-width="1.5"/>
+          <circle cx="30" cy="30" r="18" stroke="rgba(218,168,74,0.1)" stroke-width="1"/>
+        </svg>
+        <svg class="hero__float hero__float--2" viewBox="0 0 40 40" fill="none" width="40" height="40">
+          <path d="M20 2 L38 20 L20 38 L2 20 Z" stroke="rgba(218,168,74,0.12)" stroke-width="1.5"/>
+        </svg>
+        <svg class="hero__float hero__float--3" viewBox="0 0 50 50" fill="none" width="50" height="50">
+          <circle cx="25" cy="25" r="3" fill="rgba(218,168,74,0.2)"/>
+          <circle cx="25" cy="25" r="12" stroke="rgba(218,168,74,0.08)" stroke-width="1"/>
+          <circle cx="25" cy="25" r="22" stroke="rgba(218,168,74,0.05)" stroke-width="1"/>
+        </svg>
+        <svg class="hero__float hero__float--4" viewBox="0 0 30 30" fill="none" width="30" height="30">
+          <path d="M15 2 L28 28 L2 28 Z" stroke="rgba(218,168,74,0.1)" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="hero__content">
+        <p class="hero__eyebrow">Restaurant · Traiteur · Épicerie</p>
+        <h1 class="hero__title" id="hero-heading">La Calebasse</h1>
+        <p class="hero__subtitle">Les vraies saveurs des tropiques<br>au cœur de Québec</p>
+        <div class="hero__actions">
+          <a href="#menu" class="btn btn--primary">Découvrir le menu</a>
+          <a href="tel:5819812161" class="btn btn--outline">Réserver une table</a>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Défiler</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- À Propos -->
+    <section class="about" id="a-propos" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__visual">
+            <div class="about__image-frame">
+              <img class="about__photo" src="images/position de la serveuse l.png" alt="Intérieur du restaurant La Calebasse — serveuse et clients" width="600" height="450" loading="lazy">
+            </div>
+            <div class="about__accent-card">
+              <span class="about__accent-number">1<sup>er</sup></span>
+              <span class="about__accent-text">Restaurant africain<br>authentique à Québec</span>
+            </div>
+          </div>
+          <div class="about__text">
+            <p class="section-eyebrow">Notre histoire</p>
+            <h2 class="section-title" id="about-heading">L'Afrique s'invite<br>à votre table</h2>
+            <p class="about__description">
+              La Calebasse est née d'un rêve : partager les richesses gastronomiques
+              africaines avec tous, sans frontières ni exclusion. Premier restaurant
+              africain authentique de la ville de Québec, nous vous transportons
+              au cœur de l'Afrique de l'Ouest à travers des saveurs ivoiriennes
+              traditionnelles.
+            </p>
+            <p class="about__description">
+              Notre cuisine fusionne tradition et ouverture sur le monde.
+              Chaque plat raconte une histoire, chaque sauce est un voyage.
+              Venez découvrir une atmosphère exotique et chaleureuse où
+              l'authenticité est au rendez-vous.
+            </p>
+            <div class="about__stats">
+              <div class="about__stat">
+                <span class="about__stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <ellipse cx="16" cy="20" rx="12" ry="6"/>
+                    <path d="M4 20c0 4 5 7 12 7s12-3 12-7"/>
+                    <path d="M8 14c0-4 3-7 8-7s8 3 8 7"/>
+                  </svg>
+                </span>
+                <span class="about__stat-label">Cuisine<br>Ivoirienne</span>
+              </div>
+              <div class="about__stat">
+                <span class="about__stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="16" cy="10" r="5"/>
+                    <path d="M8 28c0-5 3.6-8 8-8s8 3 8 8"/>
+                    <path d="M12 5c-1-3 1-4 4-4s5 1 4 4"/>
+                  </svg>
+                </span>
+                <span class="about__stat-label">Fait<br>Maison</span>
+              </div>
+              <div class="about__stat">
+                <span class="about__stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 28c-3 0-6-8-6-16h12c0 8-3 16-6 16z"/>
+                    <path d="M13 6c-1-2 0-4 3-4s4 2 3 4"/>
+                    <path d="M10 16h12"/>
+                  </svg>
+                </span>
+                <span class="about__stat-label">Produits<br>Frais</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee Social Proof -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__content">
+          <span class="marquee__item">&#9733; 4.3 étoiles — Trois-Rivières</span>
+          <span class="marquee__sep">◆</span>
+          <span class="marquee__item">Cuisine ivoirienne authentique</span>
+          <span class="marquee__sep">◆</span>
+          <span class="marquee__item">&#9733; 4.2 étoiles — Québec</span>
+          <span class="marquee__sep">◆</span>
+          <span class="marquee__item">Restaurant · Traiteur · Épicerie</span>
+          <span class="marquee__sep">◆</span>
+          <span class="marquee__item">2 emplacements au Québec</span>
+          <span class="marquee__sep">◆</span>
+          <span class="marquee__item">100% fait maison</span>
+          <span class="marquee__sep">◆</span>
+        </span>
+        <span class="marquee__content" aria-hidden="true">
+          <span class="marquee__item">&#9733; 4.3 étoiles — Trois-Rivières</span>
+          <span class="marquee__sep">◆</span>
+          <span class="marquee__item">Cuisine ivoirienne authentique</span>
+          <span class="marquee__sep">◆</span>
+          <span class="marquee__item">&#9733; 4.2 étoiles — Québec</span>
+          <span class="marquee__sep">◆</span>
+          <span class="marquee__item">Restaurant · Traiteur · Épicerie</span>
+          <span class="marquee__sep">◆</span>
+          <span class="marquee__item">2 emplacements au Québec</span>
+          <span class="marquee__sep">◆</span>
+          <span class="marquee__item">100% fait maison</span>
+          <span class="marquee__sep">◆</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Stats Counter -->
+    <section class="stats" aria-label="Chiffres clés">
+      <div class="container">
+        <div class="stats__grid">
+          <div class="stats__item">
+            <span class="stats__number" data-target="2">0</span>
+            <span class="stats__label">Emplacements</span>
+          </div>
+          <div class="stats__divider" aria-hidden="true"></div>
+          <div class="stats__item">
+            <span class="stats__number" data-target="30" data-suffix="+">0</span>
+            <span class="stats__label">Plats au menu</span>
+          </div>
+          <div class="stats__divider" aria-hidden="true"></div>
+          <div class="stats__item">
+            <span class="stats__number" data-target="7" data-suffix="/7">0</span>
+            <span class="stats__label">Jours par semaine</span>
+          </div>
+          <div class="stats__divider" aria-hidden="true"></div>
+          <div class="stats__item">
+            <span class="stats__number" data-target="100" data-suffix="%">0</span>
+            <span class="stats__label">Fait maison</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spécialités vedettes -->
+    <section class="specialties" aria-labelledby="specialties-heading">
+      <div class="container">
+        <p class="section-eyebrow section-eyebrow--center">Incontournables</p>
+        <h2 class="section-title section-title--center" id="specialties-heading">Nos spécialités</h2>
+        <div class="specialties__grid">
+          <article class="specialty-card">
+            <div class="specialty-card__visual specialty-card__visual--warm">
+              <svg class="specialty-card__illustration" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <circle cx="60" cy="60" r="50" fill="rgba(200,149,46,0.15)"/>
+                <ellipse cx="60" cy="65" rx="35" ry="12" stroke="#c8952e" stroke-width="2"/>
+                <path d="M25 65 C25 45, 40 30, 60 30 C80 30, 95 45, 95 65" stroke="#c8952e" stroke-width="2" fill="none"/>
+                <path d="M45 50 C48 42, 55 38, 60 38" stroke="#daa84a" stroke-width="1.5" fill="none"/>
+                <circle cx="60" cy="55" r="3" fill="#c8952e" opacity="0.4"/>
+              </svg>
+            </div>
+            <h3 class="specialty-card__title">Tilapia Grillé &amp; Attiéké</h3>
+            <p class="specialty-card__desc">Notre plat signature — poisson grillé accompagné du célèbre couscous de manioc ivoirien</p>
+            <span class="specialty-card__tag">Signature</span>
+          </article>
+
+          <article class="specialty-card">
+            <div class="specialty-card__visual specialty-card__visual--rich">
+              <svg class="specialty-card__illustration" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <circle cx="60" cy="60" r="50" fill="rgba(107,58,32,0.15)"/>
+                <rect x="35" y="45" width="50" height="35" rx="6" stroke="#6b3a20" stroke-width="2"/>
+                <path d="M35 55 h50" stroke="#6b3a20" stroke-width="1.5"/>
+                <circle cx="50" cy="67" r="5" stroke="#c8952e" stroke-width="1.5"/>
+                <circle cx="70" cy="67" r="5" stroke="#c8952e" stroke-width="1.5"/>
+                <path d="M55 40 C55 35, 58 32, 60 32 C62 32, 65 35, 65 40" stroke="#6b3a20" stroke-width="1.5" fill="none"/>
+              </svg>
+            </div>
+            <h3 class="specialty-card__title">Sauce Mafé</h3>
+            <p class="specialty-card__desc">Sauce d'arachide onctueuse mijotée avec amour, servie avec viande et riz parfumé</p>
+            <span class="specialty-card__tag">Traditionnel</span>
+          </article>
+
+          <article class="specialty-card">
+            <div class="specialty-card__visual specialty-card__visual--fresh">
+              <svg class="specialty-card__illustration" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <circle cx="60" cy="60" r="50" fill="rgba(90,143,53,0.12)"/>
+                <ellipse cx="60" cy="70" rx="30" ry="8" stroke="#5a8f35" stroke-width="2"/>
+                <path d="M40 60 L50 45 L60 55 L70 42 L80 60" stroke="#5a8f35" stroke-width="2" fill="none"/>
+                <path d="M45 70 C45 60, 75 60, 75 70" stroke="#5a8f35" stroke-width="1.5" fill="none"/>
+                <circle cx="55" cy="50" r="2" fill="#c8952e"/>
+                <circle cx="68" cy="48" r="2" fill="#c8952e"/>
+              </svg>
+            </div>
+            <h3 class="specialty-card__title">Jus de Bissap</h3>
+            <p class="specialty-card__desc">Infusion d'hibiscus glacée aux notes florales — la boisson rafraîchissante par excellence</p>
+            <span class="specialty-card__tag">Boisson star</span>
+          </article>
+
+          <article class="specialty-card">
+            <div class="specialty-card__visual specialty-card__visual--golden">
+              <svg class="specialty-card__illustration" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <circle cx="60" cy="60" r="50" fill="rgba(200,149,46,0.12)"/>
+                <ellipse cx="60" cy="72" rx="28" ry="10" stroke="#c8952e" stroke-width="2"/>
+                <path d="M38 60 C38 42, 50 35, 60 35 C70 35, 82 42, 82 60" stroke="#c8952e" stroke-width="2" fill="none"/>
+                <line x1="48" y1="55" x2="48" y2="65" stroke="#daa84a" stroke-width="1.5"/>
+                <line x1="60" y1="52" x2="60" y2="65" stroke="#daa84a" stroke-width="1.5"/>
+                <line x1="72" y1="55" x2="72" y2="65" stroke="#daa84a" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3 class="specialty-card__title">Brochettes Grillées</h3>
+            <p class="specialty-card__desc">Bœuf, agneau ou poulet marinés aux épices et grillés à la flamme, servis avec plantain</p>
+            <span class="specialty-card__tag">Populaire</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <p class="section-eyebrow section-eyebrow--center">Ce que nous offrons</p>
+        <h2 class="section-title section-title--center" id="services-heading">Trois univers, une passion</h2>
+        <div class="services__grid">
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="32" cy="38" r="20"/>
+                <path d="M12 38h40"/>
+                <path d="M24 18c0-6 4-10 8-10s8 4 8 10"/>
+                <path d="M20 38c0 8 5 14 12 14s12-6 12-14"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Restaurant</h3>
+            <p class="service-card__text">
+              Savourez nos plats authentiques dans une ambiance chaleureuse.
+              Service en salle dès 17h avec un menu express disponible
+              toute la journée pour emporter.
+            </p>
+            <ul class="service-card__features" role="list">
+              <li>Dîner sur place</li>
+              <li>Menu express à emporter</li>
+              <li>Livraison à domicile</li>
+            </ul>
+          </article>
+
+          <article class="service-card service-card--featured">
+            <div class="service-card__badge" aria-label="Service populaire">Populaire</div>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="8" y="28" width="48" height="24" rx="4"/>
+                <path d="M16 28V20a16 16 0 0 1 32 0v8"/>
+                <circle cx="32" cy="40" r="4"/>
+                <path d="M32 44v4"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Traiteur</h3>
+            <p class="service-card__text">
+              Faites de vos événements un voyage culinaire inoubliable.
+              Mariages, fêtes, réceptions corporatives — nous apportons
+              l'Afrique à votre table.
+            </p>
+            <ul class="service-card__features" role="list">
+              <li>Événements privés</li>
+              <li>Réceptions corporatives</li>
+              <li>Menus personnalisés</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="8" y="12" width="48" height="44" rx="4"/>
+                <path d="M8 24h48"/>
+                <path d="M20 12V8"/>
+                <path d="M44 12V8"/>
+                <path d="M20 34h8v8h-8z"/>
+                <path d="M36 34h8"/>
+                <path d="M36 42h8"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Épicerie</h3>
+            <p class="service-card__text">
+              Retrouvez tous vos produits africains préférés : cosmétiques,
+              viandes et poissons surgelés, épices et produits alimentaires
+              de spécialité.
+            </p>
+            <ul class="service-card__features" role="list">
+              <li>Produits alimentaires africains</li>
+              <li>Cosmétiques africains</li>
+              <li>Viandes et poissons surgelés</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scroll-Stop Video -->
+    <section class="video-break" aria-label="Vidéo d'ambiance La Calebasse">
+      <div class="video-break__wrapper">
+        <video
+          class="video-break__media"
+          src="images/Video Project 9.mp4"
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-hidden="true">
+        </video>
+        <div class="video-break__overlay"></div>
+        <div class="video-break__content">
+          <p class="video-break__eyebrow">L'expérience Calebasse</p>
+          <p class="video-break__tagline">Là où chaque plat<br>raconte une histoire</p>
+          <div class="video-break__line" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section class="menu" id="menu" aria-labelledby="menu-heading">
+      <div class="container">
+        <p class="section-eyebrow section-eyebrow--center">Nos délices</p>
+        <h2 class="section-title section-title--center" id="menu-heading">Le Menu</h2>
+
+        <div class="menu__tabs" role="tablist" aria-label="Catégories du menu">
+          <button class="menu__tab menu__tab--active" role="tab" aria-selected="true" aria-controls="panel-grillades" id="tab-grillades">Grillades</button>
+          <button class="menu__tab" role="tab" aria-selected="false" aria-controls="panel-sauces" id="tab-sauces">Sauces</button>
+          <button class="menu__tab" role="tab" aria-selected="false" aria-controls="panel-accompagnements" id="tab-accompagnements">Accompagnements</button>
+          <button class="menu__tab" role="tab" aria-selected="false" aria-controls="panel-boissons" id="tab-boissons">Boissons & Desserts</button>
+        </div>
+
+        <!-- Grillades -->
+        <div class="menu__panel menu__panel--active" role="tabpanel" id="panel-grillades" aria-labelledby="tab-grillades">
+          <div class="menu__grid">
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Tilapia Grillé</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$$</span>
+              </div>
+              <p class="menu-item__desc">Servi avec attiéké, banane plantain et salade fraîche</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Brochettes de Bœuf</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$$</span>
+              </div>
+              <p class="menu-item__desc">Accompagnées de riz parfumé et bananes plantain</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Poulet Grillé</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$$</span>
+              </div>
+              <p class="menu-item__desc">Poulet mariné aux épices africaines, grillé à la perfection</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Agneau Grillé</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$$$</span>
+              </div>
+              <p class="menu-item__desc">Tendre agneau grillé servi avec garniture au choix</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Poisson Braisé</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$$</span>
+              </div>
+              <p class="menu-item__desc">Poisson entier braisé aux oignons et tomates</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sauces -->
+        <div class="menu__panel" role="tabpanel" id="panel-sauces" aria-labelledby="tab-sauces" hidden>
+          <div class="menu__grid">
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Sauce Yassa</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$$</span>
+              </div>
+              <p class="menu-item__desc">Sauce citronnée aux oignons caramélisés — un classique sénégalais</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Sauce Mafé</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$$</span>
+              </div>
+              <p class="menu-item__desc">Sauce onctueuse à base de pâte d'arachide</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Sauce Pondu</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$$</span>
+              </div>
+              <p class="menu-item__desc">Feuilles de manioc mijotées — saveurs d'Afrique centrale</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Sauce Graine</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$$</span>
+              </div>
+              <p class="menu-item__desc">Sauce aux noix de palme, riche et parfumée</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accompagnements -->
+        <div class="menu__panel" role="tabpanel" id="panel-accompagnements" aria-labelledby="tab-accompagnements" hidden>
+          <div class="menu__grid">
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Attiéké</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$</span>
+              </div>
+              <p class="menu-item__desc">Couscous de manioc — la semoule ivoirienne par excellence</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Banane Plantain</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$</span>
+              </div>
+              <p class="menu-item__desc">Frite dorée ou nature, accompagnement incontournable</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Riz Parfumé</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$</span>
+              </div>
+              <p class="menu-item__desc">Riz basmati cuit à la vapeur</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Salade Fraîche</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$</span>
+              </div>
+              <p class="menu-item__desc">Salade composée aux légumes de saison</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Boissons & Desserts -->
+        <div class="menu__panel" role="tabpanel" id="panel-boissons" aria-labelledby="tab-boissons" hidden>
+          <div class="menu__grid">
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Jus de Gingembre</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$</span>
+              </div>
+              <p class="menu-item__desc">Boisson rafraîchissante au gingembre frais</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Jus de Bissap</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$</span>
+              </div>
+              <p class="menu-item__desc">Infusion d'hibiscus — la boisson iconique d'Afrique de l'Ouest</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Dèguè</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$</span>
+              </div>
+              <p class="menu-item__desc">Dessert traditionnel à base de grains de mil et yogourt</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Tapioca</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$</span>
+              </div>
+              <p class="menu-item__desc">Perles de tapioca sucrées, servies froides</p>
+            </div>
+            <div class="menu-item">
+              <div class="menu-item__header">
+                <h3 class="menu-item__name">Gâteaux Maison</h3>
+                <span class="menu-item__dots" aria-hidden="true"></span>
+                <span class="menu-item__price">$</span>
+              </div>
+              <p class="menu-item__desc">Pâtisseries du jour préparées sur place</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu__cta">
+          <p>Les prix varient selon les plats et portions. Contactez-nous pour le menu complet.</p>
+          <a href="tel:5819812161" class="btn btn--primary">Appeler pour commander</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ambiance / Galerie -->
+    <section class="ambiance" aria-labelledby="ambiance-heading">
+      <div class="container">
+        <p class="section-eyebrow section-eyebrow--center">L'expérience</p>
+        <h2 class="section-title section-title--center" id="ambiance-heading">Une atmosphère unique</h2>
+        <div class="ambiance__hero">
+          <img class="ambiance__hero-img" src="images/la serveuse l (2).png" alt="Terrasse du restaurant La Calebasse — clients qui profitent du soleil" width="800" height="600" loading="lazy">
+          <p class="ambiance__hero-caption">Notre terrasse ensoleillée sur l'avenue Myrand</p>
+        </div>
+        <div class="ambiance__grid">
+          <div class="ambiance__card ambiance__card--wide">
+            <div class="ambiance__card-inner" role="img" aria-label="Ambiance musicale africaine">
+              <span class="ambiance__emoji" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="36" r="6"/>
+                  <circle cx="36" cy="30" r="6"/>
+                  <path d="M18 36V14l24-8v24"/>
+                  <path d="M18 20l24-8"/>
+                </svg>
+              </span>
+              <h3 class="ambiance__card-title">Soirées Musicales</h3>
+              <p class="ambiance__card-text">Concerts live avec des artistes africains pour des soirées inoubliables</p>
+            </div>
+          </div>
+          <div class="ambiance__card">
+            <div class="ambiance__card-inner" role="img" aria-label="Décoration africaine authentique">
+              <span class="ambiance__emoji" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 42h36"/>
+                  <path d="M14 42V24l10-14 10 14v18"/>
+                  <path d="M20 42v-10h8v10"/>
+                  <circle cx="24" cy="22" r="3"/>
+                  <path d="M10 30h4"/>
+                  <path d="M34 30h4"/>
+                </svg>
+              </span>
+              <h3 class="ambiance__card-title">Décor Authentique</h3>
+              <p class="ambiance__card-text">Plongez dans une atmosphère qui vous transporte au cœur de l'Afrique</p>
+            </div>
+          </div>
+          <div class="ambiance__card">
+            <div class="ambiance__card-inner" role="img" aria-label="Service de livraison">
+              <span class="ambiance__emoji" aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="14" width="26" height="18" rx="2"/>
+                  <path d="M30 22h8l6 8v4h-14"/>
+                  <circle cx="14" cy="36" r="4"/>
+                  <circle cx="38" cy="36" r="4"/>
+                  <path d="M18 32h16"/>
+                </svg>
+              </span>
+              <h3 class="ambiance__card-title">Livraison</h3>
+              <p class="ambiance__card-text">Recevez vos plats préférés directement chez vous</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section class="testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <p class="section-eyebrow section-eyebrow--center">Ce qu'on dit de nous</p>
+        <h2 class="section-title section-title--center" id="testimonials-heading">Témoignages</h2>
+        <div class="testimonials__grid">
+          <blockquote class="testimonial">
+            <div class="testimonial__stars" aria-label="5 étoiles sur 5">
+              <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            </div>
+            <p class="testimonial__text">&laquo; Un vrai voyage culinaire ! Le tilapia grillé avec attiéké est absolument divin. L'ambiance vous transporte directement en Afrique. &raquo;</p>
+            <footer class="testimonial__author">
+              <span class="testimonial__name">Marie-Claire D.</span>
+              <span class="testimonial__location">Québec</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial">
+            <div class="testimonial__stars" aria-label="5 étoiles sur 5">
+              <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            </div>
+            <p class="testimonial__text">&laquo; Le meilleur mafé que j'ai mangé en dehors de l'Afrique. Le service traiteur pour notre événement était impeccable. Merci La Calebasse ! &raquo;</p>
+            <footer class="testimonial__author">
+              <span class="testimonial__name">Amadou K.</span>
+              <span class="testimonial__location">Trois-Rivières</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial">
+            <div class="testimonial__stars" aria-label="5 étoiles sur 5">
+              <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            </div>
+            <p class="testimonial__text">&laquo; L'épicerie est une mine d'or pour trouver des produits africains à Québec. Et le jus de bissap est à tomber ! On y retourne chaque semaine. &raquo;</p>
+            <footer class="testimonial__author">
+              <span class="testimonial__name">Sophie L.</span>
+              <span class="testimonial__location">Québec</span>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <p class="section-eyebrow section-eyebrow--center">Venez nous voir</p>
+        <h2 class="section-title section-title--center" id="contact-heading">Nos emplacements</h2>
+
+        <!-- Québec -->
+        <div class="contact__grid">
+          <div class="contact__info">
+            <h3 class="contact__location-title">Québec — Myrand</h3>
+            <address class="contact__details">
+              <div class="contact__detail">
+                <div class="contact__detail-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Adresse</strong><br>
+                  969 Avenue Myrand<br>
+                  Québec, QC G1V 2W6
+                </div>
+              </div>
+
+              <div class="contact__detail">
+                <div class="contact__detail-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Téléphone</strong><br>
+                  <a href="tel:5819812161">(581) 981-2161</a>
+                </div>
+              </div>
+
+              <div class="contact__detail">
+                <div class="contact__detail-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Horaires</strong><br>
+                  Dim — Mer : 10h — 21h<br>
+                  Jeu — Sam : 10h — 22h
+                </div>
+              </div>
+            </address>
+
+            <div class="contact__actions">
+              <a href="https://www.google.com/maps/dir/?api=1&destination=969+Avenue+Myrand,+Québec,+QC+G1V+2W6" target="_blank" rel="noopener noreferrer" class="contact__directions-btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+                </svg>
+                Itinéraire
+              </a>
+              <div class="contact__socials">
+                <a href="https://www.facebook.com/Calzonequebec/" target="_blank" rel="noopener noreferrer" class="contact__social" aria-label="Facebook — Québec">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                  </svg>
+                </a>
+                <a href="https://www.instagram.com/la_calebasse_/" target="_blank" rel="noopener noreferrer" class="contact__social" aria-label="Instagram — Québec">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact__map">
+            <p class="contact__map-label">Québec</p>
+            <iframe
+              title="Localisation de La Calebasse Québec sur Google Maps"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2731.5!2d-71.2674685!3d46.7854024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb896c0244160b9%3A0xad1e90b3f4a437c7!2sRestaurant%20-%20Traiteur%20-%20Epicerie%20-%20La%20Calebasse%20Qu%C3%A9bec!5e0!3m2!1sfr!2sca!4v1700000000000"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Trois-Rivières -->
+        <div class="contact__grid contact__grid--second">
+          <div class="contact__info">
+            <h3 class="contact__location-title">Trois-Rivières</h3>
+            <address class="contact__details">
+              <div class="contact__detail">
+                <div class="contact__detail-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Adresse</strong><br>
+                  4370 Boulevard des Forges<br>
+                  Trois-Rivières, QC
+                </div>
+              </div>
+
+              <div class="contact__detail">
+                <div class="contact__detail-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Cuisine fusion africaine &amp; épicerie fine tropicale</strong><br>
+                  Contactez-nous pour les horaires
+                </div>
+              </div>
+            </address>
+
+            <div class="contact__actions">
+              <a href="https://www.google.com/maps/dir/?api=1&destination=4370+Boulevard+des+Forges,+Trois-Rivières,+QC" target="_blank" rel="noopener noreferrer" class="contact__directions-btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+                </svg>
+                Itinéraire
+              </a>
+            </div>
+          </div>
+
+          <div class="contact__map">
+            <p class="contact__map-label">Trois-Rivières</p>
+            <iframe
+              title="Localisation de La Calebasse Trois-Rivières sur Google Maps"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2760!2d-72.590725!3d46.3583695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc7c99ba6390c57%3A0x2b22ad6fc2014c10!2sLa%20Calebasse%3A%20cuisine%20fusion%20africaine%20et%20%C3%A9picerie%20fine%20tropicale!5e0!3m2!1sfr!2sca!4v1700000000000"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <img class="footer__logo" src="images/logo-calebasse.png" alt="" width="40" height="36" aria-hidden="true">
+          <span class="footer__name">La Calebasse Québec</span>
+          <p class="footer__tagline">Restaurant · Traiteur · Épicerie Africaine</p>
+        </div>
+        <div class="footer__links">
+          <a href="#accueil">Accueil</a>
+          <a href="#a-propos">À propos</a>
+          <a href="#services">Services</a>
+          <a href="#menu">Menu</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <p class="footer__copy">&copy; 2026 La Calebasse Québec. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Call Button -->
+  <a href="tel:5819812161" class="fab" aria-label="Appeler La Calebasse">
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </svg>
+  </a>
+
+  <!-- Scroll to Top -->
+  <button type="button" class="scroll-top" id="scroll-top" aria-label="Retour en haut de page">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

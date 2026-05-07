@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c8952e"/>
+      <stop offset="100%" stop-color="#6b3a20"/>
+    </linearGradient>
+  </defs>
+  <!-- Calebasse (gourd) shape -->
+  <ellipse cx="32" cy="40" rx="22" ry="18" fill="url(#g)"/>
+  <ellipse cx="32" cy="40" rx="22" ry="18" fill="none" stroke="#4a2c1a" stroke-width="1.5"/>
+  <!-- Neck -->
+  <path d="M26 24 C26 18, 28 12, 32 10 C36 12, 38 18, 38 24" fill="url(#g)" stroke="#4a2c1a" stroke-width="1.5"/>
+  <!-- Decorative line -->
+  <ellipse cx="32" cy="40" rx="15" ry="11" fill="none" stroke="#f5e6cc" stroke-width="1" opacity="0.4"/>
+  <!-- Zigzag decoration -->
+  <path d="M16 38 L20 34 L24 38 L28 34 L32 38 L36 34 L40 38 L44 34 L48 38" fill="none" stroke="#f5e6cc" stroke-width="1.2" opacity="0.5"/>
+  <!-- Steam lines -->
+  <path d="M28 8 C27 4, 30 2, 29 0" fill="none" stroke="#c8952e" stroke-width="1" opacity="0.6"/>
+  <path d="M32 7 C31 3, 34 1, 33 0" fill="none" stroke="#c8952e" stroke-width="1" opacity="0.4"/>
+  <path d="M36 8 C35 4, 38 2, 37 0" fill="none" stroke="#c8952e" stroke-width="1" opacity="0.6"/>
+</svg>
